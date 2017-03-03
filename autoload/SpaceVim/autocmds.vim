@@ -96,5 +96,5 @@ function! s:generate_doc() abort
     endif
 endfunction
 
-nnoremap <silent> jj :call phpcd#JumpBack()<CR>
-nnoremap <silent> kk :call phpcd#JumpToDefinition('normal')<CR>
+nnoremap <silent> <leader>jj :call phpcd#JumpBack()<CR>
+nnoremap <silent> <leader>kk :call phpcd#JumpToDefinition('normal')<CR>
