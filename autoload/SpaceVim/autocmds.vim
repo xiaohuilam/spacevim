@@ -36,11 +36,11 @@ function! SpaceVim#autocmds#init() abort
         autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
         autocmd BufEnter *
                     \   if empty(&buftype) && has('nvim') && &filetype != 'help'
-                    \|      nnoremap <silent><buffer> <C-]> :call MyTagfunc()<CR>
-                    \|      nnoremap <silent><buffer> <C-[> :call MyTagfuncBack()<CR>
+                    "\|      nnoremap <silent><buffer> <C-]> :call MyTagfunc()<CR>
+                    "\|      nnoremap <silent><buffer> <C-[> :call MyTagfuncBack()<CR>
                     \|  else
-                        \|      nnoremap <silent><buffer> <leader>] :call MyTagfunc()<CR>
-                        \|      nnoremap <silent><buffer> <leader>[ :call MyTagfuncBack()<CR>
+                    "    \|      nnoremap <silent><buffer> <leader>] :call MyTagfunc()<CR>
+                    "    \|      nnoremap <silent><buffer> <leader>[ :call MyTagfuncBack()<CR>
                         \|  endif
         "}}}
         autocmd FileType python,coffee call zvim#util#check_if_expand_tab()
@@ -95,3 +95,6 @@ function! s:generate_doc() abort
         call system('vimdoc .')
     endif
 endfunction
+
+nnoremap <silent> jj :call phpcd#JumpBack()<CR>
+nnoremap <silent> kk :call phpcd#JumpToDefinition('normal')<CR>

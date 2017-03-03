@@ -336,3 +336,8 @@ endf
 function! SpaceVim#default#UseSimpleMode() abort
 
 endfunction
+
+inoremap  <silent> <tab><tab> <C-x><C-o>
+let g:phpcomplete_mappings = {
+        \ 'jump_to_def': 'kk',
+   \}

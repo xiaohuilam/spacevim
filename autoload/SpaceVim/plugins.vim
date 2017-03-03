@@ -62,3 +62,6 @@ function! SpaceVim#plugins#get(...) abort
 
 endfunction
 
+call plug#begin('~/.vim/plugged')
+Plug 'lvht/phpcd.vim', { 'for': 'php' }
+call plug#end()
