@@ -95,14 +95,14 @@ endfunction
 function! SpaceVim#mapping#leader#defindUniteLeader(key) abort
     if !empty(a:key)
         " The prefix key.
-        nnoremap    [unite]   <Nop>
-        exe 'nmap ' .a:key . ' [unite]'
+        "nnoremap    [unite]   <Nop>
+        "exe 'nmap ' .a:key . ' [unite]'
         nnoremap <silent> [unite]r
                     \ :<C-u>Unite -buffer-name=resume resume<CR>
         if has('nvim')
-            nnoremap <silent> [unite]f  :<C-u>Unite file_rec/neovim<cr>
+        "    nnoremap <silent> [unite]f  :<C-u>Unite file_rec/neovim<cr>
         else
-            nnoremap <silent> [unite]f  :<C-u>Unite file_rec/async<cr>
+        "    nnoremap <silent> [unite]f  :<C-u>Unite file_rec/async<cr>
         endif
         nnoremap <silent> [unite]i  :<C-u>Unite file_rec/git<cr>
         nnoremap <silent> [unite]g  :<C-u>Unite grep<cr>

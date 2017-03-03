@@ -194,7 +194,7 @@ function! SpaceVim#default#SetMappings() abort
     nnoremap <silent>]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
     "Use jk switch to normal model
-    inoremap jk <esc>
+    "inoremap jk <esc>
 
     "]e or [e move current line ,count can be useed
     nnoremap <silent>[e  :<c-u>execute 'move -1-'. v:count1<cr>
@@ -243,14 +243,14 @@ function! SpaceVim#default#SetMappings() abort
     nnoremap < <<_
 
     " smart up and down
-    nnoremap <silent><Down> gj
-    nnoremap <silent><Up> gk
+    "nnoremap <silent><Down> gj
+    "nnoremap <silent><Up> gk
 
     " Select last paste
     nnoremap <silent><expr> gp '`['.strpart(getregtype(), 0, 1).'`]'
 
     " Use Q format lines
-    map Q gq
+    "map Q gq
 
     " Navigate window
     nnoremap <silent><C-q> <C-w>
@@ -293,12 +293,12 @@ function! SpaceVim#default#SetMappings() abort
     nnoremap <silent><M-Right> :<C-U>call <SID>tobur("bnext")<CR>
     nnoremap <silent><M-Left> :<C-U>call <SID>tobur("bprev")<CR>
 
-    call SpaceVim#mapping#def('nnoremap <silent>','<M-x>',':call chat#qq#OpenMsgWin()<cr>',
-                \ 'Open qq chatting room','call chat#chatting#OpenMsgWin()')
-    call SpaceVim#mapping#def('nnoremap <silent>','<M-w>',':call chat#weixin#OpenMsgWin()<cr>',
-                \ 'Open weixin chatting room','call chat#chatting#OpenMsgWin()')
-    call SpaceVim#mapping#def('nnoremap <silent>','<M-c>',':call chat#chatting#OpenMsgWin()<cr>',
-                \ 'Open chatting room','call chat#chatting#OpenMsgWin()')
+    "call SpaceVim#mapping#def('nnoremap <silent>','<M-x>',':call chat#qq#OpenMsgWin()<cr>',
+    "            \ 'Open qq chatting room','call chat#chatting#OpenMsgWin()')
+    "call SpaceVim#mapping#def('nnoremap <silent>','<M-w>',':call chat#weixin#OpenMsgWin()<cr>',
+    "            \ 'Open weixin chatting room','call chat#chatting#OpenMsgWin()')
+    "call SpaceVim#mapping#def('nnoremap <silent>','<M-c>',':call chat#chatting#OpenMsgWin()<cr>',
+    "            \ 'Open chatting room','call chat#chatting#OpenMsgWin()')
 
     call SpaceVim#mapping#def('nnoremap <silent>','g=',':call zvim#format()<cr>','format current buffer','call zvim#format')
 
@@ -306,9 +306,9 @@ function! SpaceVim#default#SetMappings() abort
                 \ 'Copy buffer absolute path to X11 clipboard','call zvim#util#CopyToClipboard()')
     call SpaceVim#mapping#def('nnoremap <silent>', '<Tab>', ':wincmd w<CR>', 'Switch to next window or tab','wincmd w')
     call SpaceVim#mapping#def('nnoremap <silent>', '<S-Tab>', ':wincmd p<CR>', 'Switch to previous window or tab','wincmd p')
-    call SpaceVim#mapping#def('nnoremap <silent>', 'q', ':<C-u>call zvim#util#SmartClose()<cr>',
-                \ 'Smart close windows',
-                \ 'call zvim#util#SmartClose()')
+    " call SpaceVim#mapping#def('nnoremap <silent>', 'q', ':<C-u>call zvim#util#SmartClose()<cr>',
+    "            \ 'Smart close windows',
+    "            \ 'call zvim#util#SmartClose()')
     call SpaceVim#mapping#def('nnoremap <silent>', 'gf', ':call zvim#gf()<CR>', 'Jump to a file under cursor', '')
     call SpaceVim#mapping#def('nnoremap <silent>', 'gd', ':call SpaceVim#mapping#gd()<CR>', 'Goto declaration', '')
 endfunction
