@@ -45,10 +45,10 @@ function! SpaceVim#layers#autocomplete#plugins() abort
                     \ 'loadconf' : 1,
                     \ }])
     elseif g:spacevim_autocomplete_method ==# 'deoplete'
-        call add(plugins, ['Shougo/deoplete.nvim', {
-                    \ 'on_i' : 1,
-                    \ 'loadconf' : 1,
-                    \ }])
+        "call add(plugins, ['Shougo/deoplete.nvim', {
+        "            \ 'on_i' : 1,
+        "            \ 'loadconf' : 1,
+        "            \ }])
     endif
     return plugins
 endfunction

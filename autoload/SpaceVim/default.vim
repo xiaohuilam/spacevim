@@ -168,7 +168,7 @@ function! SpaceVim#default#SetMappings() abort
     "Super paste it does not work
     "ino <C-v> <esc>:set paste<cr>mui<C-R>+<esc>mv'uV'v=:set nopaste<cr>
     "对于没有权限的文件使用 :w!!来保存
-    cnoremap w!! %!sudo tee > /dev/null %
+    " cnoremap w!! %!sudo tee > /dev/null %
     " cmap W!! w !sudo tee % >/dev/null   " I can not understand
     " Save a file with sudo
     " http://forrst.com/posts/Use_w_to_sudo_write_a_file_with_Vim-uAN
@@ -223,31 +223,30 @@ function! SpaceVim#default#SetMappings() abort
     inoremap <S-Return> <C-o>o
 
     " Improve scroll, credits: https://github.com/Shougo
-    nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ?
-                \ 'zt' : (winline() == 1) ? 'zb' : 'zz'
-    noremap <expr> <C-f> max([winheight(0) - 2, 1])
-                \ ."\<C-d>".(line('w$') >= line('$') ? "L" : "H")
-    noremap <expr> <C-b> max([winheight(0) - 2, 1])
-                \ ."\<C-u>".(line('w0') <= 1 ? "H" : "L")
-    noremap <expr> <C-e> (line("w$") >= line('$') ? "j" : "3\<C-e>")
-    noremap <expr> <C-y> (line("w0") <= 1         ? "k" : "3\<C-y>")
+    "nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ?
+    "            \ 'zt' : (winline() == 1) ? 'zb' : 'zz'
+    "noremap <expr> <C-f> max([winheight(0) - 2, 1])
+    "            \ ."\<C-d>".(line('w$') >= line('$') ? "L" : "H")
+    "noremap <expr> <C-b> max([winheight(0) - 2, 1])
+    "            \ ."\<C-u>".(line('w0') <= 1 ? "H" : "L")
+    "noremap <expr> <C-e> (line("w$") >= line('$') ? "j" : "3\<C-e>")
+    "noremap <expr> <C-y> (line("w0") <= 1         ? "k" : "3\<C-y>")
 
     " Select blocks after indenting
-    xnoremap < <gv
-    xnoremap > >gv|
+    "xnoremap < <gv
+    "xnoremap > >gv|
 
     " Use tab for indenting in visual mode
-    xnoremap <Tab> >gv|
-    xnoremap <S-Tab> <gv
-    nnoremap > >>_
-    nnoremap < <<_
+    "xnoremap <Tab> >gv|
+    "xnoremap <S-Tab> <gv
+    "nnoremap > >>_
+    "nnoremap < <<_
 
     " smart up and down
     "nnoremap <silent><Down> gj
     "nnoremap <silent><Up> gk
 
     " Select last paste
-    nnoremap <silent><expr> gp '`['.strpart(getregtype(), 0, 1).'`]'
 
     " Use Q format lines
     "map Q gq
@@ -268,9 +267,13 @@ function! SpaceVim#default#SetMappings() abort
     cnoremap <C-s> <C-u>w<CR>
 
     " Tabs
-    nnoremap <silent>g0 :<C-u>tabfirst<CR>
-    nnoremap <silent>g$ :<C-u>tablast<CR>
-    nnoremap <silent>gr :<C-u>tabprevious<CR>
+    nmap g0 :<C-u>bfirst<CR>
+    nmap g$ :<C-u>blast<CR>
+    nmap gp :<C-u>bprevious<CR>
+    nmap gn :<C-u>bnext<CR>
+
+    " Auto completion
+    inoremap  <silent> <tab><tab> <C-x><C-o>
 
     " Remove spaces at the end of lines
     nnoremap <silent> ,<Space> :<C-u>silent! keeppatterns %substitute/\s\+$//e<CR>
@@ -337,7 +340,6 @@ function! SpaceVim#default#UseSimpleMode() abort
 
 endfunction
 
-inoremap  <silent> <tab><tab> <C-x><C-o>
 let g:phpcomplete_mappings = {
         \ 'jump_to_def': 'kk',
    \}

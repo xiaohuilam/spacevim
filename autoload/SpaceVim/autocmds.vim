@@ -98,3 +98,5 @@ endfunction
 
 nnoremap <silent> <leader>jj :call phpcd#JumpBack()<CR>
 nnoremap <silent> <leader>kk :call phpcd#JumpToDefinition('normal')<CR>
+
+set nowrap
